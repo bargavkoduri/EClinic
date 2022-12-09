@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>User Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comforter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Source+Serif+4:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/234be40154.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles/doctorportal.css">
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-dark bg-dark">
+            <a href="#" id="strip"><i class="fas fa-bars bar"></i></a>
+            <a class="navbar-brand" href="#">E-Clinic</a>
+
+        </nav>
+        <div class="row one">
+            <div class="fixed" id="elements">
+                <div class="elements">
+
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action" onclick="upcoming()">
+                            <i class="fas fa-chart-line fa-fw"></i> Upcoming Schedule
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="info()"><i
+                                class="fa-solid fa-info fa-fw"></i> Info </a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="schedulemanager()"><i
+                                class="fa-solid fa-calendar-check fa-fw"></i> Schedule<br>Manager</a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="cancel()"><i
+                                class="fa-solid fa-xmark"></i>
+                            Cancel<br> Appointment</a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="messages()"><i
+                                class="fa-solid fa-message">
+                            </i> Message</a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="pastapp()"><i
+                                class="fa-solid fa-clock-rotate-left fa-fw"></i> Past Appointment </a>
+                        <br>
+                        <div class="logout">
+                            <a href="/" class="list-group-item list-group-item-action"><i
+                                    class="fas fa-sign-out-alt fa-fw"></i>Log-Out</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col container-fluid">
+                <!--Edit Info-->
+                <center>
+                    <div class="info" id="info">
+                        <h2>Edit/View Info</h2>
+                        <br>
+<form class="" action="/doctorportal" method="post">
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h4>Name</h4>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="name" name="name" class="form-control" value="<%=data.name%>">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h4>Phone Number</h4>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="phonenum" name="phno" class="form-control" value="<%=data.phone%>">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h4>Aadhaar Number</h4>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="adhar-card-d" name="adhar" class="form-control" value="<%=data.adhar%>">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h4>D.O.B</h4>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="date" name="dob" id="dobd" class="form-control" value="<%=data.dob%>">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <h4>Qualification*</h4>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="qualification" class="form-control" id="qualification" value="<%=data.qualification%>" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <h4>Department*</h4>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="department" class="form-control" id="department" value="<%=data.department%>" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h4>Experience</h4>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select name="experience" id="exp" class="form-control">
+                                                <option selected><%=data.experience%></option>
+                                                <option value="1y">1 Y</option>
+                                                <option value="2y">2 Y</option>
+                                                <option value="3y">3 Y</option>
+                                                <option value="4y">4 Y </option>
+                                                <option value="5y">5 Y</option>
+                                                <option value="6y">6 Y</option>
+                                                <option value="7y">7 Y</option>
+                                                <option value="8y">8 Y</option>
+                                                <option value="8y+">8+ Y</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div classs="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h4>Gender</h4>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="gender" id="genderD">
+                                                <option selected><%=data.gender%></option>
+                                                <option value="Male">Male</option>
+                                                <option value="Fe-Male">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h4>Password</h4>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="password" id="pass-1" name="pass-1" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h4>Confirm Password</h4>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="password" id="pass-2" name="pass-2" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-lg btn-block" id="changes">Save Changes</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+
+                </center>
+
+                <!-- Upcoming Appointments-->
+                <div class="upcoming container-fluid" id="upcoming">
+                    <h2> Hey Dr.<%=data.name%>, Welcome Back!</h2>
+                    <br>
+
+
+                    <%let fl=0%>
+                    <% past.forEach(function(papp){ %>
+                        <% pat.forEach(function(doc){%>
+                            <%  if (doc._id == papp.idp && papp.status!=false && fl==0 && papp.slot.substring(0,5) > moment().subtract(1, 'days').format('HH:mm') && moment(papp.date).format('MMMM Do YYYY') == moment().format('MMMM Do YYYY'))  {%>
+                                <h5>Next Appointment</h5>
+                                <p class="text-muted" >You can access consultation page before 5 mins of appointment time</p>
+                                <h5><i class="fas fa-user-md fa-fw"></i><%= doc.name %></h5>
+                                <hr>
+                                <h6><i class="fas fa-calendar fa-fw"></i> <%=papp.slot%> <br>
+                                    <p class="text-muted"><%=moment().format('MMMM Do YYYY')%></p>
+                                </h6>
+                                <div class="but12">
+                                    <button type="button" class="btn btn-primary btn-app">Consult Now</button>
+                                </div>
+                                <%fl=1%>
+                        <%   }}) %>
+                    <%})%>
+                    <% if(fl==0){%>
+
+                        <h5>No Appointments made for today! </h5>
+                    <%}%>
+
+
+
+
+<!--                    <h5>Next Patient</h5>-->
+
+<!--                    <h5><i class="fa-solid fa-user"></i>Patient</h5>-->
+<!--                    <hr>-->
+<!--                    <h6><i class="fas fa-calendar fa-fw"></i> 10:30-10:40 pm <br>-->
+<!--                        <p class="text-muted">Monday,25 March 2022</p>-->
+<!--                    </h6>-->
+
+<!--                    <div class="but12">-->
+<!--                        <button type="button" class="btn btn-app">Consult Now</button>-->
+<!--                    </div>-->
+
+
+
+
+
+
+                    <br>
+
+                    <h3>Your upcoming Appointments are here</h3>
+
+                    <br>
+                    <input class="form-control" id="Input1" type="text" placeholder="Search..">
+                    <br>
+                    <div class="tab1" style=" max-height: 450px;overflow-y: auto;">
+
+
+                        <table class="table table-bordered table1">
+                            <thead>
+                                <tr>
+
+                                    <th>Patient Name</th>
+                                    <th>Phone Number</th>
+
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable1" class="tbody">
+                            <% past.forEach(function(papp) { %>
+                                <% let a = parseInt(papp.slot.substring(0,2)).toString() %>
+                                <%  if(a.length == 1) { %>
+                                    <%  a = "0"+a %>
+                                <% } %>
+                                <% let b = papp.slot.substring(2) %>
+                                <% b = (a+b).substring(0,5) %>
+                                <% if((b > moment().subtract(1,'days').format('HH:mm')) && papp.status==true && (moment(papp.date).format('Do MMMM,YYYY') == moment().format('Do MMMM,YYYY') )) { %>
+                                    <%  pat.forEach(function(pat1) { %>
+                                        <%   if((pat1._id == papp.idp) ) {%>
+
+                                            <tr>
+                                                <td><%= pat1.name %></td>
+                                                <td><%= pat1.phone %></td>
+                                                <td><%= papp.slot %></td>
+                                            </tr>
+                            <%  }})}}) %>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <br>
+                    <br>
+
+                </div>
+
+
+                <!-- Messages-->
+                <div class="mcont" style=" max-height: 600px;overflow-y: auto;" id="mess">
+                    <h1>Messages</h1>
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th class="tc3">Message</th>
+                        </tr>
+                        </thead>
+                        <tbody id="myTable2" class="tbody">
+                        <% msg.forEach(function(ms) { %>
+
+                            <% pat.forEach(function(pt) { %>
+                                <% if(ms.idp == pt._id) { %>
+                                    <tr>
+                                        <td><%= ('Your Appointment with Patient '+pt.name+' at '+ms.slot+' has been cancelled. Slot is available for booking now')%></td>
+                                    </tr>
+
+                            <% }})%>
+
+                        <% })%>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!--cancel appointments-->
+                <div class="cancel" id="cancel">
+                    <h2> Cancel your scheduled appointment booked by patient</h2>
+
+                    <br><br>
+                    <input class="form-control" id="Input" type="text" placeholder="Search..">
+                    <br>
+                    <div class="tab1" style=" max-height: 450px;overflow-y: auto;">
+
+
+                        <table class="table table-bordered table1">
+                            <thead>
+                                <tr>
+                                    <th>Patient Id</th>
+                                    <th>Patient Name</th>
+                                    <th>Time</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="myTable" class="tbody">
+                            <%past.forEach(function(papp) {%>
+                                <% if((moment(papp.date).format('Do MMMM, YYYY') == moment().format('Do MMMM, YYYY')) && papp.status==true) { %>
+                                    <tr>
+                                        <% let a = papp.slot.substring(0,2); %>
+                                        <% a = parseInt(a) - 1; %>
+                                        <% a = a.toString(); %>
+                                        <% if(a.length == 1) {%>
+                                            <% a = "0"+a %>
+                                        <% } %>
+                                        <% let b = papp.slot.substring(2); %>
+                                        <% b = a+b;b = b.substring(0,5) %>
+                                        <%  if(b  > moment().subtract(1, 'days').format('HH:mm') ) { %>
+                                        <td><%=papp.idp %></td>
+                                        <% pat.forEach(function(pat1){%>
+
+                                            <%  if (pat1._id == papp.idp)  {%>
+                                                <td><%= pat1.name %></td>
+                                        <%   }}) %>
+                                        <td><%= papp.slot%></td>
+                                    </tr>
+                            <% }}}) %>
+                            </tbody>
+
+                        </table>
+                    </div>
+<br>
+                    <form method="post" action="/patientportal">
+                        <div class="form-group">
+                            <label for="patidc">Enter Patient-Id of patient you want to cancel</label>
+                            <input type="text" class="form-control" id="patidc" placeholder="Enter PatientId">
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="slotc">Choose your booked slot you want to cancel</label>
+                            <select class="form-control" id="slotc">
+                                <option disabled selected hidden>Select slot</option>
+                                <option>08:00-08:30</option>
+                                <option>08:30-09:00</option>
+                                <option>09:00-09:30</option>
+                                <option>09:30-10:00</option>
+                                <option>10:00-10:30</option>
+                                <option>10:30-11:00</option>
+                                <option>11:00-11:30</option>
+                                <option>11:30-12:00</option>
+                                <option>18:00-18:30</option>
+                                <option>18:30-19:00</option>
+                                <option>19:00-19:30</option>
+                                <option>19:30-20:00</option>
+                                <option>20:00-20:30</option>
+                                <option>20:30-21:00</option>
+                                <option>21:00-21:30</option>
+                                <option>21:30-22:00</option>
+
+
+                            </select>
+
+
+
+
+
+                        </div>
+
+
+                        <div class="but12">
+                            <button type="button" id="cancelapt" class="btn btn-primary btn-app">Cancel Appointment of patient</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!--Previous Appointments and send prescription-->
+                <div class="previous_tab" style=" max-height: 600px;overflow-y: auto;" id="pasp">
+                    <h1>Previous Appointments</h1>
+                    <table class="table table-bordered table1">
+                        <thead>
+                            <tr>
+
+                                <th>Patient Name</th>
+                                <th>Date</th>
+                                <th>Time Slot</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable" class="tbody">
+                        <% past.forEach(function(papp){%>
+                            <% if(moment(papp.date).format('Do MMMM, YYYY') != moment().format('Do MMMM, YYYY')) { %>
+                                <% pat.forEach(function(pat1) { %>
+                                    <% if(pat1._id == papp.idp) { %>
+                                        <tr>
+                                            <td><%= pat1.name%></td>
+                                            <td><%= moment(papp.date).format('Do MMMM, YYYY')%></td>
+                                            <td><%= papp.slot %></td>
+                                            <% if(papp.status == true) { %>
+                                            <td><%='Success'%></td>
+                                            <% } else { %>
+                                            <td><%='Failed'%></td>
+                                            <% } %>
+                                        </tr>
+                            <% }})} else { %>
+                                <% if(papp.slot.slice(6) < moment().format('HH:mm')) {%>
+                                    <% pat.forEach(function(pat1) { %>
+                                        <% if(pat1._id == papp.idp) { %>
+                                            <tr>
+                                                <td><%= pat1.name%></td>
+                                                <td><%= moment(papp.date).format('Do MMMM, YYYY')%></td>
+                                                <td><%= papp.slot %></td>
+                                                <% if(papp.status == true) { %>
+                                                <td><%='Success'%></td>
+                                                <% } else { %>
+                                                <td><%='Failed'%></td>
+                                                <% } %>
+                                            </tr>
+                        <%  }})}}}) %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--Schedule Manager-->
+                <div class="schedule" id="schmana">
+
+                    <h2>Your Daily Available Schedule/Slot</h2>
+                    <br><br>
+                    <h4 style="font-weight: bold"><%= moment().format('Do MMMM, YYYY'); %></h4>
+                    <br>
+                    <br>
+                    <table class="table table-bordered" id="tabq">
+                        <thead>
+                            <tr>
+                                <th>Slot</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+
+                        <% data1.forEach(function(shed1){  %>
+                            <tr>
+
+                                <td><%= shed1.slot%></td>
+                            </tr>
+                        <%})%>
+
+
+
+                        </tbody>
+                    </table>
+
+
+                    <br>
+                    <br>
+
+                    <form class="" action="/doctorportal" method="post">
+
+
+                        <div class="form-group">
+                            <label for="slot">
+                                <h3> Add Schedule</h3>
+                            </label>
+
+
+                            <select class="form-control" id="slot" name="slot">
+                                <option value="" hidden selected disabled>Add Schedule</option>
+
+                                <% let temp_arr = ["08:00-08:30","08:30-09:00","09:00-09:30","09:30-10:00","10:00-10:30","10:30-11:00","11:00-11:30","11:30-12:00","18:00-18:30","18:30-19:00","19:00-19:30","19:30-20:00","20:00-20:30","21:00-21:30","21:30-22:00"]%>
+                                <% let arr = []%>
+                                <% for(let i=0;i<temp_arr.length;i++){%>
+                                    <% let ele = temp_arr[i]%>
+                                    <% data1.forEach( function(ele1){%>
+                                        <% if(ele1.slot == ele){%>
+                                            <% arr.push(i)%>
+                                <% }})} %>
+                                <% for(let i=0;i<temp_arr.length;i++) {%>
+                                    <%  if(arr.indexOf(i) == -1){%>
+                                        <option><%= temp_arr[i] %></option>
+                                <% }} %>
+
+
+
+                            </select>
+                        </div>
+
+                        <div class="but12">
+                            <button type="submit" id="butslot" class="btn btn-primary btn-app">Add Slot</button>
+                        </div>
+
+                    </form>
+
+                    <br>
+                    <br>
+                    <form class="" action="/doctorportal" method="post">
+
+
+                        <div class="form-group">
+                            <label for="shed-del">
+                                <h3>Delete Schedule</h3>
+                            </label>
+
+
+                            <select class="form-control" id="shed-del">
+                                <option value="" hidden selected disabled>Delete Schedule</option>
+                                <% data1.forEach(function(shed1){  %>
+
+
+                                        <option><%= shed1.slot%></option>
+
+                                <%})%>
+
+                            </select>
+                        </div>
+
+                        <div class="but12">
+                            <button type="button" id="butdel" class="btn btn-primary btn-app">Delete Slot</button>
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="doctorportal.js" charset="utf-8 "></script>
+</body>
+
+</html>

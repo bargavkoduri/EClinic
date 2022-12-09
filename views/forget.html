@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/234be40154.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/forget.css">
+</head>
+
+<body>
+<form  action="/forgot" method="post">
+
+
+<div class="container forgot" id="forgot">
+    <center>
+        <i class="fa-solid fa-lock icon"></i>
+    </center>
+    <h2>Forgot Password?</h2>
+    <br>
+    <p>No worries,we've got you covered</p>
+    <br><br>
+    <form-group>
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6">
+                <input type="mail" id="email" name="email" placeholder="Enter Your Email" class="form-control" required>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <button class="btn btn-lg btn-block" id="sbtn">Next</button>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </form-group>
+</div>
+
+<div class="container dis" id="dis">
+    <center>
+        <i class="fa-solid fa-circle-check icon"></i>
+    </center>
+    <br><br>
+    <h3>Your New Password has been sent your email</h3>
+    <p>You can change your password from edit info section after you login</p>
+</div>
+</form>
+<script src="/forget.js"></script>
+</body>
+
+</html>

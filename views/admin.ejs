@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/admin.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 20px;
+    }
+
+    .largerCheckbox {
+      width: 40px;
+      height: 40px;
+    }
+
+    .query {
+      /* margin-top: 7.5%;  */
+      margin-left: 10%;
+      margin-right: 10%;
+      background-color: white;
+      /* display:none; */
+    }
+
+    .accept {
+      /* margin-top: 7.5%;   */
+      margin-left: 10%;
+      margin-right: 10%;
+      background-color: white;
+      display: none;
+      /* padding: 5%; */
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      padding-left: 30px;
+      padding-right: 40px;
+    }
+
+
+    .box {
+      background-color: #eee;
+      width: 400px;
+      height: 150px;
+      margin-top: 50px;
+      margin-left: 100px;
+      display: inline-block;
+    }
+
+    .box1 {
+      width: 70px;
+      height: 50px;
+      position: relative;
+      bottom: 20px;
+      left: 20px;
+      box-shadow: 0px 0px 10px 2px black;
+    }
+
+    .q {
+      margin-top: 40px;
+    }
+
+    .table1 {
+      margin-top: 100px;
+    }
+
+    .table2 {
+      margin-top: 50px;
+    }
+
+    .acc {
+      margin-top: 70px;
+      /* margin-bottom: 500px; */
+    }
+
+    .rem {
+      margin-bottom: 40px;
+
+    }
+
+    .remp {
+      margin-bottom: 40px;
+
+    }
+
+    .removeDoctor {
+      /* margin-top: 7.5%;  */
+      margin-left: 10%;
+      margin-right: 10%;
+      background-color: white;
+      display: none;
+      padding: 5%;
+    }
+
+    .removePatient {
+      /* margin-top: 7.5%;  */
+      margin-left: 10%;
+      margin-right: 10%;
+      background-color: white;
+      display: none;
+      padding: 5%;
+    }
+
+    input {
+      width: 250px;
+      padding: 5px;
+    }
+
+    .button {
+      background-color: #f44336;
+      /* Green */
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 4px;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<div class="sidebar">
+  <div class="logo-details">
+    <pre><div class="logo_name">  E-Clinic</div></pre>
+    <i class='bx bx-menu' id="btn"></i>
+  </div>
+  <ul class="nav-list">
+    <li id="qu">
+      <a href="#">
+        <i class="bi bi-question-circle-fill"></i>
+        <span class="links_name">Queries</span>
+      </a>
+      <span class="tooltip">Queries</span>
+    </li>
+    <br>
+    <li id="ad">
+      <a href="#">
+        <i class="fa fa-stethoscope"></i>
+        <span class="links_name">Accept<br>doctor</span>
+      </a>
+      <span class="tooltip">Accept doctor</span>
+    </li>
+    <br>
+    <li id="removeDoc">
+      <a href="#">
+        <i class="fa fa-user-md"></i>
+        <span class="links_name">Remove<br>doctor</span>
+      </a>
+      <span class="tooltip">Remove doctor</span>
+    </li>
+    <br>
+    <li id="removePat">
+      <a href="#">
+        <i class="fa fa-wheelchair"></i>
+        <span class="links_name">Remove<br>patient</span>
+      </a>
+      <span class="tooltip">Remove patient</span>
+    </li>
+    <br>
+  </ul>
+</div>
+<div class="query" id="tb1">
+
+  <div class="q">
+    <strong style="font-size: 60px;">Queries</strong>
+  </div>
+
+  <table class="table1">
+
+    <thead>
+    <tr class="bg-light">
+      <th scope="col" width="10%">query id</th>
+      <th scope="col" width="10%">name</th>
+      <th scope="col" width="10%">email</th>
+      <th scope="col" width="20%">query</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%queriesList.forEach(query=> {%>
+    <tr>
+      <th scope="row">
+        <%= query._id%>
+      </th>
+      <td>
+        <%= query.name %>
+      </td>
+      <td>
+        <%= query.email %>
+      </td>
+      <td>
+        <%= query.query %>
+      </td>
+      <%})%>
+
+    </tbody>
+  </table>
+  <form action=" " method="post">
+    <input id="queryid" placeholder="Enter the ids of resolved queries" name="queryname" /><br>
+    <button type="submit" id="queryID" class="button button3">DONE</button>
+  </form>
+</div>
+
+<div class="accept" id="tb2">
+  <div class="acc">
+    <strong style="font-size: 60px;">Verify Doctor</strong>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col" width="10%">doctor id</th>
+      <th scope="col" width="10%">name</th>
+      <th scope="col" width="10%">email</th>
+      <th scope="col" width="10%">aadhaar details</th>
+      <th scope="col" width="10%">qualification</th>
+      <th scope="col" width="10%">Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%dupdoctorsList.forEach(doctor=> {%>
+      <tr>
+        <th scope="row" id="dupdocid">
+          <%= doctor._id%>
+        </th>
+        <td>
+          <%= doctor.name %>
+        </td>
+        <td>
+          <%= doctor.email %>
+        </td>
+        <td>
+          <%= doctor.adhar %>
+        </td>
+        <td>
+          <%= doctor.qualification %>
+        </td>
+        <td>
+          <%= doctor.department %>
+        </td>
+      </tr>
+    <%})%>
+    </tbody>
+  </table>
+  <form action=" " method="post">
+    <input id="docdid" placeholder="Enter Doctor Id" name="docdname" /><br>
+    <button type="submit" id="docdID" class="button button3">Accept doctor</button>
+  </form>
+</div>
+
+<div class="removeDoctor" id="tb3">
+  <div class="rem">
+    <strong style="font-size: 60px;">Remove Doctor</strong>
+  </div>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search doctor name.." title="Type in a name">
+  <br>
+  <table class="table" id="table3">
+    <thead>
+    <tr>
+      <th scope="col" width="10%">doctor id</th>
+      <th scope="col" width="10%">name</th>
+      <th scope="col" width="10%">email</th>
+      <th scope="col" width="10%">qualification</th>
+      <th scope="col" width="10%">Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%doctorsList.forEach(doctor=> {%>
+    <tr>
+      <th scope="row">
+        <%= doctor._id%>
+      </th>
+      <td>
+        <%= doctor.name %>
+      </td>
+      <td>
+        <%= doctor.email %>
+      </td>
+      <td>
+        <%= doctor.qualification %>
+      </td>
+      <td>
+        <%= doctor.department %>
+      </td>
+
+      <%})%>
+
+    </tbody>
+  </table>
+
+  <br> <br>
+  <form action="" method="post">
+    <input id="docid" placeholder="Enter Doctor Id" name="docname" /><br>
+    <button type="submit" id="docID" class="button button3">Remove doctor</button>
+  </form>
+</div>
+
+
+<div class="removePatient" id="tb4">
+  <div class="remp">
+    <strong style="font-size: 60px;">Remove Patient</strong>
+  </div>
+  <input type="text" id="myInput2" onkeyup="clickFunction()" placeholder="Search patient name.." title="in a name">
+  <br><br>
+  <table class="table4" id="table4">
+    <thead>
+    <tr class="bg-light">
+      <th scope="col" width="10%">patient id</th>
+      <th scope="col" width="10%">name</th>
+      <th scope="col" width="10%">email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%patientsList.forEach(patient=> {%>
+    <tr>
+      <th scope="row">
+        <%= patient._id%>
+      </th>
+      <td>
+        <%= patient.name %>
+      </td>
+      <td>
+        <%= patient.email %>
+      </td>
+      <%})%>
+    </tbody>
+  </table>
+
+  <br> <br>
+  <form action=" " method="post">
+    <input id="patid" placeholder="Enter Patient Id" name="patname" /><br>
+    <button type="submit" id="patID" class="button button3">Remove Patient</button>
+  </form>
+</div>
+
+
+<script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.getElementById("btn");
+
+  closeBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    menuBtnChange();
+  });
+
+  document.getElementById("qu").addEventListener("click", function () {
+    document.getElementById("tb1").style.display = "block";
+    document.getElementById("tb2").style.display = "none";
+    document.getElementById("tb3").style.display = "none";
+    document.getElementById("tb4").style.display = "none";
+  })
+
+  document.getElementById("ad").addEventListener("click", function () {
+    document.getElementById("tb1").style.display = "none";
+    document.getElementById("tb2").style.display = "block";
+    document.getElementById("tb3").style.display = "none";
+    document.getElementById("tb4").style.display = "none";
+
+  })
+
+  document.getElementById("removeDoc").addEventListener("click", function () {
+    document.getElementById("tb1").style.display = "none";
+    document.getElementById("tb2").style.display = "none";
+    document.getElementById("tb3").style.display = "block";
+    document.getElementById("tb4").style.display = "none";
+  })
+
+  document.getElementById("removePat").addEventListener("click", function () {
+    document.getElementById("tb1").style.display = "none";
+    document.getElementById("tb2").style.display = "none";
+    document.getElementById("tb3").style.display = "none";
+    document.getElementById("tb4").style.display = "block";
+  })
+  z
+  function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("table3");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
+  function clickFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput2");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("table4");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
+  document.getElementById('queryID').addEventListener("click", async (e) => {
+    e.preventDefault();
+    const rawResponse = await fetch('/admin', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ queryid: document.getElementById('queryid').value })
+    });
+    const content = await rawResponse.json();
+    if (content.status == 'true') {
+      window.location.href = "/admin"
+    }
+    else {
+      console.log("Failed please try again")
+      window.location.href = "/admin"
+
+    }
+  })
+
+  document.getElementById('docdID').addEventListener("click", async (e) => {
+    e.preventDefault();
+    const rawResponse = await fetch('/admin', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ docdid: document.getElementById('docdid').value })
+    });
+    const content = await rawResponse.json();
+    if (content.status == 'true') {
+      window.location.href = "/admin"
+    }
+    else {
+      console.log("Failed please try again")
+      window.location.href = "/admin"
+
+    }
+  })
+
+
+  document.getElementById('docID').addEventListener("click", async (e) => {
+    e.preventDefault();
+    const rawResponse = await fetch('/admin', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ docid: document.getElementById('docid').value })
+    });
+    const content = await rawResponse.json();
+    if (content.status == 'true') {
+      window.location.href = "/admin"
+    }
+    else {
+      console.log("Failed please try again")
+      window.location.href = "/admin"
+
+    }
+  })
+
+  document.getElementById('patID').addEventListener("click", async (e) => {
+    e.preventDefault();
+    const rawResponse = await fetch('/admin', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ patid: document.getElementById('patid').value })
+    });
+    const content = await rawResponse.json();
+    if (content.status == 'true') {
+      window.location.href = "/admin"
+    }
+    else {
+      console.log("Failed please try again")
+      window.location.href = "/admin"
+
+    }
+  })
+
+
+
+</script>
+</body>
+
+</html>

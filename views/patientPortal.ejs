@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>User Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comforter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Source+Serif+4:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/234be40154.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="styles\patientportal.css">
+</head>
+
+<body>
+
+
+  <div class="container-fluid">
+    <nav class="navbar navbar-dark bg-dark">
+      <a href="#" id="strip"><i class="fas fa-bars bar"></i></a>
+      <a class="navbar-brand" href="#">E-Clinic </a>
+
+    </nav>
+    <div class="row one">
+      <div class="fixed" id="elements">
+        <div class="elements">
+
+          <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action" id="a">
+              <i class="fas fa-angle-double-right fa-fw" ></i>Upcoming Appointments
+            </a>
+            <a href="#" class="list-group-item list-group-item-action" id="b"><i class="fa-solid fa-info fa-fw"></i>Info </a>
+            <a href="#" class="list-group-item list-group-item-action" id="d"><i class="fa-solid fa-calendar-check fa-fw"></i> Book Appointment</a>
+            <a href="#" class="list-group-item list-group-item-action" id="e"><i class="fa-solid fa-calendar-check fa-fw"></i> Cancel Appointment</a>
+            <a href="#" class="list-group-item list-group-item-action" id="f"><i class="fa-solid fa-clock-rotate-left fa-fw"></i> Past Appointment </a>
+            <a href="#" class="list-group-item list-group-item-action" id="g"><i class="fas fa-envelope fa-fw"></i> Messages </a>
+            <a href="/" class="list-group-item list-group-item-action" id="h"><i class="fas fa-sign-out-alt fa-fw"></i>Log-Out</a>
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="col">
+
+        <div class="booking" id="booking">
+          <h1> Book Doctor Now! </h1>
+<!--          <a href="#">Click here to get doctor suggestion based on symptoms</a>-->
+          <br><br>
+          <input class="form-control" id="Input2" type="text" placeholder="Search..">
+          <br>
+          <div class="tab1" style=" max-height: 450px;overflow-y: auto;">
+
+
+            <table class="table table-bordered table1">
+              <thead>
+                <tr>
+                  <th>DoctorId</th>
+                  <th>Name</th>
+                  <th>Gender</th>
+                  <th>Qualification</th>
+                  <th>Department</th>
+                  <th>Experience</th>
+                </tr>
+              </thead>
+              <tbody id="myTable2" class="tbody">
+              <% data.forEach(function(doc){  %>
+                <tr>
+                  <td><%= doc._id %></td>
+                  <td><%= doc.name %></td>
+                  <td><%= doc.gender %></td>
+                  <td><%= doc.qualification %></td>
+                  <td><%= doc.department %></td>
+                  <td><%= doc.experience %></td>
+                </tr>
+              <%})%>
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <form action="/patientportal" method="post" >
+            <div class="form-group">
+              <label for="docid2">Doctor-Id</label>
+              <input type="text" class="form-control" id="docid2" placeholder="Enter DoctorId">
+
+
+            </div>
+            <div class="form-group">
+              <button type="button" id="getavb" class="btn btn-primary btn-app">Get Availability</button>
+            </div>
+
+
+            <div class="form-group">
+
+
+              <label for="slot2"  >Select Slot</label>
+              <select class="form-control" id="slot2">
+                <option disabled selected hidden>Select Available slots</option>
+                <% let temp_arr = ["08:00-08:30","08:30-09:00","09:00-09:30","09:30-10:00","10:00-10:30","10:30-11:00","11:00-11:30","11:30-12:00","18:00-18:30","18:30-19:00","19:00-19:30","19:30-20:00","20:00-20:30","20:30-21:00","21:00-21:30","21:30-22:00"]%>
+                <% for(let i=0;i<temp_arr.length;i++) {%>
+                  <% let a = temp_arr[i] %>
+                  <% a = a.substring(0,2) %>
+                  <% a = parseInt(a) - 1 %>
+                  <% a = a.toString() %>
+                  <% if(a.length == 1) {%>
+                    <% a = "0"+a %>
+                  <% } %>
+                  <% let b = temp_arr[i].substring(2) %>
+                  <% b = a+b; b = b.substring(0,5) %>
+                  <%  if(b > moment().subtract(1, 'days').format('HH:mm') ) { %>
+                  <option><%=temp_arr[i]%></option>
+                <% }} %>
+              </select>
+            </div>
+
+
+
+            <div class="but12">
+              <button type="button" id="cnf" class="btn btn-primary btn-app">Check & Confirm Slot</button>
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <!-- upcoming -->
+
+        <div class="upcoming" id="upcoming">
+          <h1> Hey <%=pdata.name%> , Welcome Back! </h1>
+          <br>
+
+          <%let fl=0%>
+          <% past.forEach(function(papp){ %>
+            <% data.forEach(function(doc){%>
+              <%  if (doc._id == papp.idd&&papp.status!=false && fl==0 && papp.slot.substring(0,5) > moment().subtract(1, 'days').format('HH:mm') && moment(papp.date).format('MMMM Do YYYY') == moment().format('MMMM Do YYYY'))  {%>
+              <h5>Next Appointment</h5>
+              <p class="text-muted" >You can access consultation page before 5 mins of appointment time</p>
+              <h5><i class="fas fa-user-md fa-fw"></i><%="Dr "+doc.name %></h5>
+              <hr>
+              <h6><i class="fas fa-calendar fa-fw"></i> <%=papp.slot%> <br>
+                <p class="text-muted"><%=moment().format('MMMM Do YYYY')%></p>
+              </h6>
+              <div class="but12">
+                <button type="button" class="btn btn-primary btn-app">Consult Now</button>
+              </div>
+              <%fl=1%>
+            <%   }}) %>
+          <%})%>
+          <% if(fl==0){%>
+
+            <h5>No Appointments made for today! </h5>
+          <%}%>
+
+
+
+
+
+
+
+
+
+
+
+
+          <br>
+
+          <h3>Your upcoming Appointments are here</h3>
+
+          <br>
+          <input class="form-control" id="Input1" type="text" placeholder="Search..">
+          <br>
+          <div class="tab1" style=" max-height: 450px;overflow-y: auto;">
+
+
+            <table class="table table-bordered table1">
+              <thead>
+                <tr>
+
+                  <th>Doctor Name</th>
+                  <th>Date</th>
+                  <th>Time</th>
+
+                </tr>
+              </thead>
+              <tbody id="myTable3" class="tbody">
+
+              <% past.forEach(function(papp){ %>
+                <% if(moment(papp.date).format('Do MMMM, YYYY') == moment().format('Do MMMM, YYYY')&&papp.status==true) {%>
+                  <% let a = papp.slot.substring(0,2); %>
+                  <% a = parseInt(a) + 1; %>
+                  <% a = a.toString(); %>
+                  <% if(a.length == 1) {%>
+                    <% a = "0"+a %>
+                  <% } %>
+                  <% let b = papp.slot.substring(2); %>
+                  <% b = a+b;b = b.substring(0,5) %>
+
+                  <%  if(moment().subtract(1, 'days').format('HH:mm') < b)  { %>
+                    <tr>
+                      <% data.forEach(function(doc){%>
+                        <%  if (doc._id == papp.idd)  {%>
+                          <td><%= doc.name %></td>
+                      <%   }}) %>
+                      <td><%=moment(papp.date).format('Do MMMM, YYYY')%></td>
+                      <td><%=papp.slot%></td>
+                    </tr>
+              <% }}}) %>
+              </tbody>
+            </table>
+
+          </div>
+          <br>
+          <br>
+
+
+
+        </div>
+
+
+        <!-- cancel -->
+        <div class="cancel" id="cancel">
+          <h1> Cancel your scheduled appointment</h1>
+
+          <br><br>
+          <input class="form-control" id="Input" type="text" placeholder="Search..">
+          <br>
+          <div class="tab1" style=" max-height: 450px;overflow-y: auto;">
+
+
+            <table class="table table-bordered table1">
+              <thead>
+              <tr>
+                <th>Doctor Id</th>
+                <th>Doctor Name</th>
+
+                <th>Time Slot</th>
+
+              </tr>
+              </thead>
+              <tbody id="myTable" class="tbody">
+              <%past.forEach(function(papp) {%>
+                <% if((moment(papp.date).format('Do MMMM, YYYY') == moment().format('Do MMMM, YYYY')) && papp.status==true) { %>
+                  <tr>
+                    <% let a = papp.slot.substring(0,2); %>
+                    <% a = parseInt(a) - 1; %>
+                    <% a = a.toString(); %>
+                    <% if(a.length == 1) {%>
+                      <% a = "0"+a %>
+                    <% } %>
+                    <% let b = papp.slot.substring(2); %>
+                    <% b = a+b;b = b.substring(0,5) %>
+                    <%  if(b  > moment().subtract(1, 'days').format('HH:mm') ) { %>
+                    <td><%=papp.idd %></td>
+                    <% data.forEach(function(doc){%>
+                      <%  if (doc._id == papp.idd)  {%>
+                        <td><%= doc.name %></td>
+                    <%   }}) %>
+                    <td><%= papp.slot%></td>
+                  </tr>
+              <% }}}) %>
+              </tbody>
+            </table>
+          </div>
+
+          <form method="post" action="/patientportal">
+            <div class="form-group">
+              <label for="docidc">Enter Doctor-Id of doctor you want to cancel</label>
+              <input type="text" class="form-control" id="docidc" placeholder="Enter DoctorId">
+
+
+            </div>
+            <div class="form-group">
+              <label for="slotc">Choose Slot of Doctor you want to cancel</label>
+              <select class="form-control" id="slotc">
+                <option disabled selected hidden>Select slot</option>
+                <option>08:00-08:30</option>
+                <option>08:30-09:00</option>
+                <option>09:00-09:30</option>
+                <option>09:30-10:00</option>
+                <option>10:00-10:30</option>
+                <option>10:30-11:00</option>
+                <option>11:00-11:30</option>
+                <option>11:30-12:00</option>
+                <option>18:00-18:30</option>
+                <option>18:30-19:00</option>
+                <option>19:00-19:30</option>
+                <option>19:30-20:00</option>
+                <option>20:00-20:30</option>
+                <option>20:30-21:00</option>
+                <option>21:00-21:30</option>
+                <option>21:30-22:00</option>
+
+
+              </select>
+
+
+
+
+
+            </div>
+
+
+            <div class="but12">
+              <button type="button" id="cancelapt" class="btn btn-primary btn-app">Cancel Your Appointment</button>
+            </div>
+
+          </form>
+
+        </div>
+
+
+<!--        past appointment-->
+
+        <div class="past-appointment" id="past-appointment">
+          <h1>Yor last appointments</h1>
+
+          <br><br>
+          <input class="form-control" id="Input3" type="text" placeholder="Search..">
+          <br>
+          <div class="tab1" style=" max-height: 450px;overflow-y: auto;">
+
+
+            <table class="table table-bordered table1">
+              <thead>
+              <tr>
+
+                <th>Doctor Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+
+
+
+              </tr>
+              </thead>
+              <tbody id="myTable3" class="tbody">
+
+              <% past.forEach(function(papp){ %>
+                <tr>
+                <% if(moment(papp.date).format('Do MMMM, YYYY') != moment().format('Do MMMM, YYYY')) {%>
+
+                <% data.forEach(function(doc){%>
+
+                  <%  if (doc._id == papp.idd)  {%>
+                    <td><%= doc.name %></td>
+                <%   }}) %>
+                <td><%=moment(papp.date).format('Do MMMM, YYYY')%></td>
+                <td><%=papp.slot%></td>
+                <% if (papp.status == true) { %>
+                <td><%='Success'%></td>
+                <%  } else { %>
+                <td><%='Failed'%></td>
+                <% }} else { %>
+                  <% if(moment().subtract(1, 'days').format('HH:mm')>papp.slot.slice(6)) { %>
+                    <% data.forEach(function(doc){%>
+                      <%  if (doc._id == papp.idd)  {%>
+                        <td><%= doc.name %></td>
+                    <%   }}) %>
+                    <td><%=moment(papp.date).format('Do MMMM, YYYY')%></td>
+                    <td><%=papp.slot%></td>
+                    <% if (papp.status == true) { %>
+                    <td><%='Success'%></td>
+                    <%  } else { %>
+                    <td><%='Failed'%></td>
+
+                <% }}}%>
+                  </tr>
+                <%})%>
+              </tbody>
+
+            </table>
+          </div>
+
+
+          </div>
+
+<!--info-->
+    <form class="" action="/patientportal" method="post">
+
+
+        <div class="info" id="info">
+          <h2>Edit/View Info</h2>
+          <br>
+          <br>
+
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h5>Name</h5>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" id="name" name="name" class="form-control" value="<%=pdata.name%>">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h5>Phone Number</h5>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" id="phonenum" name="phono" class="form-control" value="<%=pdata.phone%>">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h5>Aadhaar Number</h5>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" id="adhar" name="adhar" class="form-control" value="<%=pdata.adhar%>">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h5>D.O.B</h5>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" id="dob" name="dob" class="form-control" value="<%=(pdata.dob)%>">
+                  </div>
+                </div>
+              </div>
+
+              <div classs="form-group">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h5>Gender</h5>
+                  </div>
+                  <div class="col-sm-9">
+                    <select class="form-control" name="gender" id="gender" value="<%=pdata.gender%>">
+
+                      <option value="Male">Male</option>
+                      <option value="Fe-Male">Female</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <h5>Allergies</h5>
+
+                    <textarea id="allergies"  class="form-control" name="allergies" style="height : 150px"><%=pdata.allergies%></textarea>
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <h5>Past Medical History</h5>
+                    <textarea id="m_history" name="history" class="form-control" style="height : 150px"><%=pdata.medicalhistory%></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <h5>Password</h5>
+                </div>
+                <div class="col-sm-8">
+                  <input type="password" name="pass1" id="pass1" class="form-control" >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <h5>Confirm Password</h5>
+                </div>
+                <div class="col-sm-8">
+                  <input type="password" name="pass2" id="pass2" class="form-control" >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-lg btn-block"
+              style="background-color: #655D8A"id="savechanges">Save Changes</button>
+            </div>
+          </div>
+        </div>
+
+
+</form>
+
+<!--message-->
+
+
+        <!-- Permissions -->
+        <div id="map1" class="map1">
+          <div class="mcont" style=" max-height: 450px;overflow-y: auto;" id="map">
+            <h1>Messages</h1>
+            <br>
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th class="tc3">Message</th>
+              </tr>
+              </thead>
+              <tbody id="myTable" class="tbody">
+              <% msg.forEach(function(ms) {%>
+                <% data.forEach(function(doc) { %>
+
+                  <% if(doc._id == ms.idd) { %>
+                    <tr>
+                      <td><%= ('Your Appointment with Dr.'+ doc.name+' at '+ms.slot+' has been cancelled.') %></td>
+                    </tr>
+
+                <% }}) %>
+
+              <% }) %>
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+  <script src="patientportal.js" charset="utf-8 "></script>
+</body>
+
+</html>

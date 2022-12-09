@@ -1,0 +1,148 @@
+.container-fluid{
+  padding: 0;
+
+  font-family: 'Montserrat', sans-serif;
+
+}
+.fixed{
+    width: 180px;
+    background-color: #655D8A;
+
+}
+
+.one{
+
+height: 100vh;
+margin: 0;
+
+}
+.navbar-brand{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+strong{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.elements{
+
+    padding-left: 2.5%;
+      text-align: left;
+
+}
+.list-group-flush .list-group-item{
+
+  background-color:  #655D8A;
+
+  font-family:  'Nunito', sans-serif;
+color: black;
+padding: 0;
+padding-bottom: 15%;
+padding-top: 15%;
+font-size: 1.2rem;
+line-height: 1.5rem;
+}
+.list-group-flush .list-group-item:hover{
+  color: white;
+
+}
+
+.bar{
+
+  font-size: 2rem;
+  color: black;
+
+}
+.bar:hover{
+  color: white;
+}
+
+.tab1{
+  /* padding-top: 3%; */
+}
+.booking{
+
+  padding-left: 3%;
+  padding-top: 3%;
+  width: 80%;
+    font-family: 'Montserrat', sans-serif;
+    display: none;
+
+}
+.tbody{
+  /* display: block; */
+
+  max-height: 100px;
+  overflow-y:  auto;
+}
+
+.but12{
+  padding-top: 2%;
+padding-bottom: 3%;
+
+  }
+  .btn-app{
+    background-color: #655D8A;
+
+
+  }
+  .btn-app:hover{
+    background-color:  #711A75;
+
+  }
+  h5{
+    font-size: 1rem;
+  }
+  
+  .upcoming{
+    /* display: none; */
+    padding-left: 3%;
+    padding-top: 1%;
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .cancel{
+    padding-left: 3%;
+    padding-top: 3%;
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+    display: none;
+
+
+  }
+  .past-appointment{
+    padding-left: 3%;
+    padding-top: 3%;
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+     display: none;
+  }
+  .info{
+    padding-left: 3%;
+    padding-top: 3%;
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+    display: none;
+  }
+  .mcont{
+    padding-left: 3%;
+    padding-top: 3%;
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 3%;
+
+  }
+  .map1{
+    display: none;
+  }
+  .btnp{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.shedule{
+  padding-left: 3%;
+  padding-top: 3%;
+  width: 80%;
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 3%;
+}

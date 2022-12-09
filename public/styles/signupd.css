@@ -1,0 +1,121 @@
+body {
+    background-color: #655D8A;
+}
+
+#signup {
+    background-color: #655D8A;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-fluid {
+    padding: 3% 8% 5%;
+    width: 80%;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    border-radius: 1rem;
+}
+
+.one {
+    padding: 5% 5% 5% 5%;
+    text-align: left;
+     display: none;
+}
+
+.head {
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.bod-1 {
+    padding-top: 5%;
+}
+
+h4 {
+    font-family: 'Source Serif 4', sans-serif;
+    letter-spacing: .9px;
+}
+
+.log {
+    padding-top: 10%;
+    font-family: 'Source Serif 4', sans-serif;
+    text-align: center;
+}
+
+.but {
+    padding-top: 10%;
+    text-align: center;
+}
+
+span {
+    font-family: 'Source Serif 4', sans-serif;
+    font-size: .9rem;
+}
+
+.two {
+    padding: 5% 5% 5% 5%;
+    text-align: left;
+    /*display: none;*/
+}
+
+.bod-2 {
+    text-align: center;
+}
+
+.ic {
+    font-size: 1.2rem;
+}
+
+.constrain {
+    text-align: left;
+    padding-top: 3%;
+    font-size: .8rem;
+    color: grey;
+}
+
+.list:hover {
+    color: black;
+}
+.three{
+    padding:5% 5% 5% 5%;
+    display: none;
+}
+
+.bod-3{
+    text-align: center;
+}
+
+.four{
+    padding:5% 5% 5% 5%;
+    text-align: left;
+    display: none;
+}
+
+.bod-4{
+    text-align: center;
+
+}
+
+.five{
+    padding:5% 5% 5% 5%;
+    text-align: left;
+    display: none;
+}
+
+.bod-5{
+    text-align: center;
+}
+.six{
+    padding:5% 5% 5% 5%;
+    text-align: left;
+    display: none;
+}
+
+.bod-6{
+    text-align: center;
+}

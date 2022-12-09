@@ -32,7 +32,3 @@ Add following routes for admin page in your browser
 'http://localhost:3000/admin'
 ```
 Github Link
-
-```sh
-https://github.com/akie123/ffsd
-```

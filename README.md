@@ -31,4 +31,3 @@ Add following routes for admin page in your browser
 ```sh
 'http://localhost:3000/admin'
 ```
-Github Link
